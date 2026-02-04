@@ -1,3 +1,4 @@
+/* General body */
 body {
   margin: 0;
   height: 100vh;
@@ -6,36 +7,44 @@ body {
   overflow: hidden;
 }
 
-/* Card */
+/* Card styling */
 .card {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 30px 40px;
+  padding: 25px;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  z-index: 5;
+  max-width: 90%;
+  width: 400px;
 }
 
+/* Hide elements */
 .hidden {
   display: none;
 }
 
+/* Buttons */
 .buttons {
- position: relative;   /* boundary for NO button */
-  height: 80px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 button {
+  flex: 1 1 auto;
+  min-width: 100px;
   padding: 12px 24px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 #yesBtn {
@@ -44,17 +53,14 @@ button {
 }
 
 #noBtn {
- position: absolute;
-  right: 0;
-  top: 0;
-  transition: left 0.2s, top 0.2s; /* smooth movement */
+  background: #ccc;
 }
 
 /* Hearts */
 .heart {
   position: fixed;
   bottom: -20px;
-  font-size: 26px;
+  font-size: 20px;
   animation: floatUp 6s linear;
   z-index: 1;
   pointer-events: none;
@@ -63,4 +69,17 @@ button {
 @keyframes floatUp {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .card {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
 }
